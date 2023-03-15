@@ -1,0 +1,23 @@
+import numpy as np
+import time
+
+# создаем 2 массива по 1 миллиону элементов, заполненных случайными числами
+list_a = [np.random.rand() for _ in range(1000000)]
+list_b = [np.random.rand() for _ in range(1000000)]
+array_a = np.array(list_a)
+array_b = np.array(list_b)
+
+# измеряем время выполнения для умножения списка
+start = time.perf_counter()
+result_list = [list_a[i] * list_b[i] for i in range(len(list_a))]
+end = time.perf_counter()
+time_list = end - start
+
+# измеряем время для умножения массивов NumPy
+start = time.perf_counter()
+result_array = np.multiply(array_a, array_b)
+end = time.perf_counter()
+time_array = end - start
+
+print(f"Time taken for list multiplication: {time_list:.6f} seconds")
+print(f"Time taken for NumPy array multiplication: {time_array:.6f} seconds")
