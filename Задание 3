@@ -1,0 +1,21 @@
+import numpy as np
+import matplotlib.pyplot as plt
+from mpl_toolkits.mplot3d import Axes3D
+
+# определяем значение x
+n = 1000
+x = np.linspace(-2*n, 2*n, num=10000)
+
+# вычисляем значения y и z
+y = np.sin(x) * np.cos(x)
+z = np.sin(x) * np.cos(x)
+
+# создаем трехмерный график
+fig = plt.figure()
+ax = fig.add_subplot(111, projection='3d')
+ax.plot(x, y, z)
+ax.set_xlabel('X')
+ax.set_ylabel('Y')
+ax.set_zlabel('Z')
+ax.set_title('3D Graph of y=sin(x)cos(x), z=sin(x)cos(x)')
+plt.show()
