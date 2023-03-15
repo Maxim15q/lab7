@@ -1,0 +1,28 @@
+import numpy as np
+import pandas as pd
+import matplotlib.pyplot as plt
+
+# подгружаем файл data2
+df = pd.read_csv('data2.csv', header=None)
+
+# извлекаем данные из первого столбца
+data = df.iloc[:, 0]
+
+# генерируем гистограмму
+bins = 16  # number of columns in the histogram
+plt.hist(data, bins=bins)
+plt.title('Histogram of Data')
+plt.xlabel('Values')
+plt.ylabel('Frequency')
+plt.show()
+
+# генерируем нормализованную гистограмму
+plt.hist(data, bins=bins, density=True)
+plt.title('Normalized Histogram of Data')
+plt.xlabel('Values')
+plt.ylabel('Frequency')
+plt.show()
+
+# вычисляем стандартное отклонение
+std = np.std(data)
+print(f'Standard deviation of data: {std:.6f}')
