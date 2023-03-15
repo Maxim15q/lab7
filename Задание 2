@@ -9,7 +9,7 @@ df = pd.read_csv('data2.csv', header=None)
 data = df.iloc[:, 0]
 
 # генерируем гистограмму
-bins = 16  # number of columns in the histogram
+bins = 16 
 plt.hist(data, bins=bins)
 plt.title('Histogram of Data')
 plt.xlabel('Values')
